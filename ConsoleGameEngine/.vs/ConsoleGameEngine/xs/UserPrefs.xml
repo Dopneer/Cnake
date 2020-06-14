@@ -1,0 +1,31 @@
+﻿<Properties StartupConfiguration="{AE2E5731-12D6-4881-A614-DF69843AF4ED}|Default">
+  <MonoDevelop.Ide.ItemProperties.ConsoleGameEngine PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="ConsoleGameEngine/Program.cs">
+    <Files>
+      <File FileName="ConsoleGameEngine/Program.cs" Line="97" Column="18" />
+      <File FileName="ConsoleGameEngine/GameObject.cs" Line="102" Column="1" />
+      <File FileName="ConsoleGameEngine/Window.cs" />
+      <File FileName="ConsoleGameEngine/Symbol.cs" />
+      <File FileName="ConsoleGameEngine/Snake.cs" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="ConsoleGameEngine" expanded="True">
+            <Node name="ConsoleGameEngine" expanded="True">
+              <Node name="Program.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Catchpoint exceptionName="System.Exception" includeSubclasses="True" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
