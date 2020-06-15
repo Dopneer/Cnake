@@ -33,11 +33,10 @@ namespace ConsoleGameEngine
             {
                 for (int j = 0; j < SizeX; j++)
                 {
-                    Console.Write("\x1b[48;5;" + Content[i, j].Color + "m" + Content[i, j].Value);
+                    Console.Write(Content[i, j].Value);
                 }
                 Console.WriteLine();
             }
-            Console.Write("\x1b[48;5;255m");
         }
 
     }

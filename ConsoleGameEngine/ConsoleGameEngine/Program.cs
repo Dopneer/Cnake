@@ -45,19 +45,19 @@ namespace ConsoleGameEngine
 
             SnakeBody.Add(new GameObject(5, 5, new Snake[,]
             {
-                { new Snake(' ', 0xDE, "right") }
+                { new Snake('-', 0xDE, "right") }
             }));
             SnakeBody.Add(new GameObject(5, 4, new Snake[,]
            {
-                { new Snake(' ', 0xCC, "right") }
+                { new Snake('#', 0xCC, "right") }
            }));
             SnakeBody.Add(new GameObject(5, 3, new Snake[,]
            {
-                { new Snake(' ', 0xCC, "right") }
+                { new Snake('#', 0xCC, "right") }
            }));
             SnakeBody.Add(new GameObject(5, 2, new Snake[,]
            {
-                { new Snake(' ', 0xCC, "right") }
+                { new Snake('#', 0xCC, "right") }
            }));
 
 
@@ -108,6 +108,22 @@ namespace ConsoleGameEngine
 
         public static void MoveSnake()
         {
+            (SnakeBody[0].Content[0, 0] as Snake).Direction = (SnakeBody[0].Content[0, 0] as Snake).setDir;
+            switch ((SnakeBody[0].Content[0, 0] as Snake).Direction)
+            {
+                case "up":
+                    SnakeBody[0].Content[0, 0].Value = '^';
+                    break;
+                case "left":
+                    SnakeBody[0].Content[0, 0].Value = '<';
+                    break;
+                case "right":
+                    SnakeBody[0].Content[0, 0].Value = '>';
+                    break;
+                case "down":
+                    SnakeBody[0].Content[0, 0].Value = 'V';
+                    break;
+            }
 
             bool spawn = false;
             int posX = 0;
@@ -116,8 +132,8 @@ namespace ConsoleGameEngine
 
             for (int i = 0; i < Program.SnakeBody.Count; i++)
             {
-
-                if(i != 0 && SnakeBody[i].PosX == SnakeBody[0].PosX && SnakeBody[i].PosY == SnakeBody[0].PosY)
+                (SnakeBody[i].Content[0, 0] as Snake).Direction = (SnakeBody[i].Content[0, 0] as Snake).setDir;
+                if (i != 0 && SnakeBody[i].PosX == SnakeBody[0].PosX && SnakeBody[i].PosY == SnakeBody[0].PosY)
                 {
                     Console.WriteLine("You snake Ded(");
                     System.Environment.Exit(0);
@@ -141,7 +157,7 @@ namespace ConsoleGameEngine
                     posX = lastSnake.PosX;
                     Dir = (lastSnake.Content[0, 0] as Snake).Direction;
 
-                    SnakeBody.Add(new GameObject(posY, posX, new Snake[,] { { new Snake(' ', 0xCC, Dir) } }));
+                    SnakeBody.Add(new GameObject(posY, posX, new Snake[,] { { new Snake('#', 0xCC, Dir) } }));
    
                 }
 
@@ -173,6 +189,7 @@ namespace ConsoleGameEngine
             {
 
                 (SnakeBody[i].Content[0, 0] as Snake).Direction = (SnakeBody[i - 1].Content[0, 0] as Snake).Direction;
+                (SnakeBody[i].Content[0, 0] as Snake).setDir = (SnakeBody[i - 1].Content[0, 0] as Snake).Direction;
 
             }
 

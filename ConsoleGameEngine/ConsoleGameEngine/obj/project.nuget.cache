@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "0oyO3J1ronQBaE0Zwoxe4AedOKHSmzw8O0TotMuhCY7NZkL5IzUtGEusJf1NniwSuBCpPNL5/LrgtP8NhOw4Xw==",
+  "dgSpecHash": "nrFHyc8rrlzpT1S8Z0LQr23+yJV9jCY5CniX7cap8I4Qg8d9cfQcZJ4SSAPkAvdv6jDjDoImapNyyNalzgzdNA==",
   "success": true,
-  "projectFilePath": "/Users/michaelskirda/Desktop/Cnake/ConsoleGameEngine/ConsoleGameEngine/ConsoleGameEngine.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\admin\\Desktop\\Cnake\\ConsoleGameEngine\\ConsoleGameEngine\\ConsoleGameEngine.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\admin\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.2\\microsoft.aspnetcore.app.ref.3.1.2.nupkg.sha512"
+  ],
   "logs": []
 }
