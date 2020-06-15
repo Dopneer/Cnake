@@ -10,3 +10,15 @@
 /Users/michaelskirda/Projects/ConsoleGameEngine/ConsoleGameEngine/obj/Debug/netcoreapp3.1/ConsoleGameEngine.dll
 /Users/michaelskirda/Projects/ConsoleGameEngine/ConsoleGameEngine/obj/Debug/netcoreapp3.1/ConsoleGameEngine.pdb
 /Users/michaelskirda/Projects/ConsoleGameEngine/ConsoleGameEngine/obj/Debug/netcoreapp3.1/ConsoleGameEngine.genruntimeconfig.cache
+/Users/michaelskirda/Desktop/Cnake/ConsoleGameEngine/ConsoleGameEngine/bin/Debug/netcoreapp3.1/ConsoleGameEngine.deps.json
+/Users/michaelskirda/Desktop/Cnake/ConsoleGameEngine/ConsoleGameEngine/bin/Debug/netcoreapp3.1/ConsoleGameEngine.runtimeconfig.json
+/Users/michaelskirda/Desktop/Cnake/ConsoleGameEngine/ConsoleGameEngine/bin/Debug/netcoreapp3.1/ConsoleGameEngine.runtimeconfig.dev.json
+/Users/michaelskirda/Desktop/Cnake/ConsoleGameEngine/ConsoleGameEngine/bin/Debug/netcoreapp3.1/ConsoleGameEngine.dll
+/Users/michaelskirda/Desktop/Cnake/ConsoleGameEngine/ConsoleGameEngine/bin/Debug/netcoreapp3.1/ConsoleGameEngine.pdb
+/Users/michaelskirda/Desktop/Cnake/ConsoleGameEngine/ConsoleGameEngine/obj/Debug/netcoreapp3.1/ConsoleGameEngine.csprojAssemblyReference.cache
+/Users/michaelskirda/Desktop/Cnake/ConsoleGameEngine/ConsoleGameEngine/obj/Debug/netcoreapp3.1/ConsoleGameEngine.AssemblyInfoInputs.cache
+/Users/michaelskirda/Desktop/Cnake/ConsoleGameEngine/ConsoleGameEngine/obj/Debug/netcoreapp3.1/ConsoleGameEngine.AssemblyInfo.cs
+/Users/michaelskirda/Desktop/Cnake/ConsoleGameEngine/ConsoleGameEngine/obj/Debug/netcoreapp3.1/ConsoleGameEngine.csproj.CoreCompileInputs.cache
+/Users/michaelskirda/Desktop/Cnake/ConsoleGameEngine/ConsoleGameEngine/obj/Debug/netcoreapp3.1/ConsoleGameEngine.dll
+/Users/michaelskirda/Desktop/Cnake/ConsoleGameEngine/ConsoleGameEngine/obj/Debug/netcoreapp3.1/ConsoleGameEngine.pdb
+/Users/michaelskirda/Desktop/Cnake/ConsoleGameEngine/ConsoleGameEngine/obj/Debug/netcoreapp3.1/ConsoleGameEngine.genruntimeconfig.cache

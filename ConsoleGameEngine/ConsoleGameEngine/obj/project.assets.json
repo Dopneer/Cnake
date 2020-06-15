@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/michaelskirda/Projects/ConsoleGameEngine/ConsoleGameEngine/ConsoleGameEngine.csproj",
+      "projectUniqueName": "/Users/michaelskirda/Desktop/Cnake/ConsoleGameEngine/ConsoleGameEngine/ConsoleGameEngine.csproj",
       "projectName": "ConsoleGameEngine",
-      "projectPath": "/Users/michaelskirda/Projects/ConsoleGameEngine/ConsoleGameEngine/ConsoleGameEngine.csproj",
+      "projectPath": "/Users/michaelskirda/Desktop/Cnake/ConsoleGameEngine/ConsoleGameEngine/ConsoleGameEngine.csproj",
       "packagesPath": "/Users/michaelskirda/.nuget/packages/",
-      "outputPath": "/Users/michaelskirda/Projects/ConsoleGameEngine/ConsoleGameEngine/obj/",
+      "outputPath": "/Users/michaelskirda/Desktop/Cnake/ConsoleGameEngine/ConsoleGameEngine/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
@@ -60,7 +60,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.202/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.300/RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 using System.Threading;
 using System.Collections.Generic;
 using System.IO;
@@ -27,6 +28,10 @@ namespace ConsoleGameEngine
 
         static void Main(string[] args)
         {
+
+            Console.InputEncoding = Encoding.UTF8;
+            Console.OutputEncoding = Encoding.UTF8;
+
             // Создаем движок
             Core core = new Core();
             // Создаем окно отрисовки
@@ -40,17 +45,28 @@ namespace ConsoleGameEngine
 
             SnakeBody.Add(new GameObject(5, 5, new Snake[,]
             {
-                { new Snake(' ', 0xCC, "left") }
+                { new Snake(' ', 0xDE, "right") }
             }));
-            
+            SnakeBody.Add(new GameObject(5, 4, new Snake[,]
+           {
+                { new Snake(' ', 0xCC, "right") }
+           }));
+            SnakeBody.Add(new GameObject(5, 3, new Snake[,]
+           {
+                { new Snake(' ', 0xCC, "right") }
+           }));
+            SnakeBody.Add(new GameObject(5, 2, new Snake[,]
+           {
+                { new Snake(' ', 0xCC, "right") }
+           }));
+
 
             // При нажатии на пробел будет
             // Просчитываться клик по объекту
             core.clickButtons.Add(ConsoleKey.Spacebar);
 
 
-            SnakeBody[0].Update.Add(new GameObjectDelegate(MoveSnake));
-            Food.Update.Add(new GameObjectDelegate(SpawnFood));
+
 
             
 
@@ -90,74 +106,83 @@ namespace ConsoleGameEngine
             }
         }
 
-        public static void MoveSnake(GameObject gameObject)
+        public static void MoveSnake()
         {
 
-            switch ((gameObject.Content[0, 0] as Snake).Direction)
+            bool spawn = false;
+            int posX = 0;
+            int posY = 0;
+            string Dir = "up";
+
+            for (int i = 0; i < Program.SnakeBody.Count; i++)
             {
 
-                case "up":
-                    if (Food.PosX == gameObject.PosX && Food.PosY == gameObject.PosY - 1)
-                    {
-                        SnakeBody.Add(new GameObject(Food.PosY - 1, Food.PosX, new Snake[,] { { new Snake(' ', 0xCC, (gameObject.Content[0, 0] as Snake).Direction) } }));
-                        FoodSpawn = false;
-                        Food.Move(-10, -10);
-                        return;
-                    }
-                    break;
-                case "down":
-                    if (Food.PosX == gameObject.PosX && Food.PosY == gameObject.PosY + 1)
-                    {
-                        SnakeBody.Add(new GameObject(Food.PosY + 1, Food.PosX, new Snake[,] { { new Snake(' ', 0xCC, (gameObject.Content[0, 0] as Snake).Direction) } }));
-                        FoodSpawn = false;
-                        Food.Move(-10, -10);
-                        return;
-                    }
-                    break;
-                case "left":
-                    if (Food.PosX == gameObject.PosX - 1 && Food.PosY == gameObject.PosY)
-                    {
-                        SnakeBody.Add(new GameObject(Food.PosY, Food.PosX - 1, new Snake[,] { { new Snake(' ', 0xCC, (gameObject.Content[0, 0] as Snake).Direction) } }));
-                        FoodSpawn = false;
-                        Food.Move(-10, -10);
-                        return;
-                    }
-                    break;
-                case "right":
-                    if (Food.PosX == gameObject.PosX + 1 && Food.PosY == gameObject.PosY)
-                    {
-                        SnakeBody.Add(new GameObject(Food.PosY, Food.PosX + 1, new Snake[,] { { new Snake(' ', 0xCC, (gameObject.Content[0, 0] as Snake).Direction) } }));
-                        FoodSpawn = false;
-                        Food.Move(-10, -10);
-                        return;
-                    }
-                    break;
+                if(i != 0 && SnakeBody[i].PosX == SnakeBody[0].PosX && SnakeBody[i].PosY == SnakeBody[0].PosY)
+                {
+                    Console.WriteLine("You snake Ded(");
+                    System.Environment.Exit(0);
+                }
+                
+
+                GameObject gameObject = SnakeBody[i];
+                
+
+                gameObject.Move((gameObject.Content[0, 0] as Snake).Direction);
+
+                if (Food.PosY == gameObject.PosY && Food.PosX == gameObject.PosX)
+                {
+                    Food.Move(-10, -10);
+                    FoodSpawn = false;
+
+                    GameObject lastSnake = SnakeBody[SnakeBody.Count - 1];
+
+                    spawn = true;
+                    posY = lastSnake.PosY;
+                    posX = lastSnake.PosX;
+                    Dir = (lastSnake.Content[0, 0] as Snake).Direction;
+
+                    SnakeBody.Add(new GameObject(posY, posX, new Snake[,] { { new Snake(' ', 0xCC, Dir) } }));
+   
+                }
+
+
+                // If out of map (Y)
+                if (gameObject.PosY >= SizeY)
+                    // Move on 0 coordinate
+                    gameObject.Move(0, gameObject.PosX);
+
+                // If out of map (Y)
+                if (gameObject.PosY < 0)
+                    // Move on window sizee coordinate
+                    gameObject.Move(SizeY, gameObject.PosX);
+
+
+
+                // If out of map (X)
+                if (gameObject.PosX >= SizeX)
+                    // Move on 0 coordinate
+                    gameObject.Move(gameObject.PosY, 0);
+
+                // If out of map (Y)
+                if (gameObject.PosX < 0)
+                    // Move on window sizee coordinate
+                    gameObject.Move(gameObject.PosY, SizeX);
             }
 
-            gameObject.Move((gameObject.Content[0, 0] as Snake).Direction);
+            for (int i = SnakeBody.Count - 1; i > 0; i--)
+            {
 
+                (SnakeBody[i].Content[0, 0] as Snake).Direction = (SnakeBody[i - 1].Content[0, 0] as Snake).Direction;
 
-            // If out of map (Y)
-            if (gameObject.PosY >= SizeY)
-                // Move on 0 coordinate
-                gameObject.Move(0, gameObject.PosX);
+            }
 
-            // If out of map (Y)
-            if (gameObject.PosY < 0)
-                // Move on window sizee coordinate
-                gameObject.Move(SizeY, gameObject.PosX);
+            if(spawn)
+            {
+                spawn = false;
+                (SnakeBody[SnakeBody.Count - 1].Content[0, 0] as Snake).Direction = Dir;
+                SnakeBody[SnakeBody.Count - 1].Move(posY, posX);
+            }
 
-
-
-            // If out of map (X)
-            if (gameObject.PosX >= SizeX)
-                // Move on 0 coordinate
-                gameObject.Move(gameObject.PosY, 0);
-
-            // If out of map (Y)
-            if (gameObject.PosX < 0)
-                // Move on window sizee coordinate
-                gameObject.Move(gameObject.PosY, SizeX);
         }
 
     }
@@ -253,23 +278,17 @@ namespace ConsoleGameEngine
         {
             while (true)
             {
-                foreach (GameObject obj in Objects)
-                {
 
-                    if (obj.Update != null)
-                    {
-                        foreach (GameObjectDelegate gameObjectDelegate in obj.Update)
-                        {
-                            gameObjectDelegate(obj);
-                        }
-                    }
-                }
+                Program.SpawnFood(Program.Food);
+
+                Program.MoveSnake();
+
 
                 UpdateData();
 
                 window.Draw();
 
-                Thread.Sleep(66);
+                Thread.Sleep(200);
 
             }
         }

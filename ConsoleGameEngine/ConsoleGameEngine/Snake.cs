@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Text;
+
 namespace ConsoleGameEngine
 {
     public class Snake : Symbol
@@ -14,7 +16,9 @@ namespace ConsoleGameEngine
 
         public void Control()
         {
-            while(true)
+            System.Text.EncodingProvider provider = System.Text.CodePagesEncodingProvider.Instance;
+            Encoding.RegisterProvider(provider);
+            while (true)
             {
                 switch(Console.ReadKey().Key)
                 {
