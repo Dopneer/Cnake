@@ -305,7 +305,7 @@ namespace ConsoleGameEngine
 
                 window.Draw();
 
-                Thread.Sleep(200);
+                Thread.Sleep(66);
 
             }
         }
